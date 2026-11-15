@@ -62,12 +62,22 @@ p {
     width: var(--w);
     margin-left: calc(var(--w) * -0.89);
     transform-origin: 89% 50%;
-    animation: swap 1.75s step-end infinite;
+    animation: side 3.2s step-end infinite;
 }
 
 .tilt {
     transform: rotate(-18deg);
     transform-origin: 89% 75%;
+}
+
+.front {
+    position: absolute;
+    left: 50%;
+    top: calc(var(--w) * 0.03);
+    width: calc(var(--w) * 1.15);
+    margin-left: calc(var(--w) * -0.575);
+    visibility: hidden;
+    animation: front 3.2s step-end infinite;
 }
 
 svg {
@@ -96,13 +106,41 @@ svg {
     opacity: 0.35;
 }
 
-@keyframes swap {
+@keyframes side {
     0% {
         transform: scaleX(1);
+        visibility: visible;
+    }
+
+    25% {
+        visibility: hidden;
     }
 
     50% {
         transform: scaleX(-1);
+        visibility: visible;
+    }
+
+    75% {
+        visibility: hidden;
+    }
+}
+
+@keyframes front {
+    0% {
+        visibility: hidden;
+    }
+
+    25% {
+        visibility: visible;
+    }
+
+    50% {
+        visibility: hidden;
+    }
+
+    75% {
+        visibility: visible;
     }
 }
 
@@ -110,5 +148,10 @@ svg {
     .mover,
     .tilt {
         animation: none;
+    }
+
+    .front {
+        animation: none;
+        visibility: hidden;
     }
 }
