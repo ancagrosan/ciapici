@@ -62,7 +62,7 @@ p {
     width: var(--w);
     margin-left: calc(var(--w) * -0.89);
     transform-origin: 89% 50%;
-    animation: swap 2.5s step-end infinite;
+    animation: swap 1.75s step-end infinite;
 }
 
 .tilt {
